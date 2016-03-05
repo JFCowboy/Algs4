@@ -1,8 +1,11 @@
 /*------------------------------------
  *   Author:       JFCowboy
  *   Written:      04/03/2016
- *   Last Updated: 04/03/2016
+ *   Last Updated: 05/03/2016
  * 
+ *   Compilation: 	javac Deque.java
+ *   Execution:		java Deque < input.txt
+ *   Dependencies:	StdIn.java, StdOut.java
  *   
  * 
  *------------------------------------*/
