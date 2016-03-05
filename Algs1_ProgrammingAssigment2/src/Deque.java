@@ -245,6 +245,14 @@ public class Deque<Item> implements Iterable<Item> {
 				} else {
 					dq.removeLast();
 				}
+			} else if (ope == 5) {
+				StdOut.println(dq.size());
+				for (String str : dq) {
+					StdOut.println("1: " + str);
+					for (String str2 : dq) {
+						StdOut.println("2: " + str2);
+					}
+				}
 			} else {
 				int idx = 0;
 				StdOut.println(dq.size());
