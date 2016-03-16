@@ -15,6 +15,11 @@
 import java.util.Comparator;
 import edu.princeton.cs.algs4.StdDraw;
 
+/**
+ * 
+ * @author JuanFelipe
+ *
+ */
 public class Point implements Comparable<Point> {
 
     private final int x;     // x-coordinate of this point
@@ -61,12 +66,12 @@ public class Point implements Comparable<Point> {
      */
     public double slopeTo(Point that) {
         double slope;
-        if (this.equals(that)) {
+        if (this.x == that.x && this.y == that.y) {
             slope = Double.NEGATIVE_INFINITY;
         } else if (this.x == that.x) {
-            slope = +0.0;
-        } else if (this.y == that.y) {
             slope = Double.POSITIVE_INFINITY;
+        } else if (this.y == that.y) {
+            slope = +0.0;
         } else {
             slope = (double) (that.y - this.y) / (double) (that.x - this.x);
         }
@@ -106,7 +111,7 @@ public class Point implements Comparable<Point> {
      * @author JuanFelipe
      * Clase comparator usada para comparar por pendiente de puntos.
      */
-    private class ComparatorSlope implements Comparator<Point>{
+    private class ComparatorSlope implements Comparator<Point> {
         private Point ref;
         
         /**
@@ -144,11 +149,9 @@ public class Point implements Comparable<Point> {
     public static void main(String[] args) {
         StdDraw.setScale(-100, 100);
         StdDraw.setPenColor(StdDraw.RED);
-        Point p1 = new Point(0, 0);
-        Point p2 = new Point(100, 10);
-        Point p3 = new Point(100, 10);
-        Point p4 = new Point(0, 10);
+        Point p1 = new Point(387, 485);
+        Point p2 = new Point(387, 485);
         p2.drawTo(p1);
-        p3.drawTo(p4);
+        System.out.println(p1.slopeTo(p2));
     }
 }

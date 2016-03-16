@@ -14,6 +14,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import edu.princeton.cs.algs4.StdDraw;
+import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.In;
 
 /**
  * 
@@ -28,9 +30,10 @@ public class FastCollinearPoints {
     
     /**
      * finds all line segments containing 4 or more points.
-     * @param points set of points.
+     * @param points2 set of points.
      */
-   public FastCollinearPoints(Point[] points) {
+   public FastCollinearPoints(Point[] points2) {
+       Point[] points = points2.clone();
        //Validaciones de datos
        if (points == null) {
            throw new NullPointerException("Array is null");
@@ -47,7 +50,7 @@ public class FastCollinearPoints {
                    throw new NullPointerException("A value in " 
                            + "the array is null");
                }
-               if (points[j] == punto) {
+               if (points[j].compareTo(punto) == 0) {
                    throw new IllegalArgumentException("Two points " 
                            + "are th same");
                }
@@ -102,7 +105,7 @@ public class FastCollinearPoints {
     * the number of line segments.
     * @return
     */
-   public int numberOfSegments(){
+   public int numberOfSegments() {
        return segments.length;
    }
 
@@ -111,10 +114,10 @@ public class FastCollinearPoints {
     * @return 
     */
    public LineSegment[] segments() {
-       return segments;
+       return segments.clone();
    }
    
-   public static void main(String args[]) throws Exception {
+   public static void main(String[] args) {
     // read the N points from a file
        //System.setIn(new FileInputStream("collinear/input6.txt"));
        In in = new In("collinear/rs1423.txt");
