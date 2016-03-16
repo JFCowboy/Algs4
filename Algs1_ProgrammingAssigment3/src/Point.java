@@ -61,12 +61,12 @@ public class Point implements Comparable<Point> {
      */
     public double slopeTo(Point that) {
         double slope;
-        if (this.x == that.x) {
+        if (this.equals(that)) {
+            slope = Double.NEGATIVE_INFINITY;
+        } else if (this.x == that.x) {
             slope = +0.0;
         } else if (this.y == that.y) {
             slope = Double.POSITIVE_INFINITY;
-        } else if (this.equals(that)) {
-            slope = Double.NEGATIVE_INFINITY;
         } else {
             slope = (double) (that.y - this.y) / (double) (that.x - this.x);
         }
@@ -142,6 +142,13 @@ public class Point implements Comparable<Point> {
      * Unit tests the Point data type.
      */
     public static void main(String[] args) {
-        
+        StdDraw.setScale(-100, 100);
+        StdDraw.setPenColor(StdDraw.RED);
+        Point p1 = new Point(0, 0);
+        Point p2 = new Point(100, 10);
+        Point p3 = new Point(100, 10);
+        Point p4 = new Point(0, 10);
+        p2.drawTo(p1);
+        p3.drawTo(p4);
     }
 }
